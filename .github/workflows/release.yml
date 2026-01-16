@@ -14,12 +14,12 @@ jobs:
     
     steps:
       - name: Custom checkout
-        uses: v-sinika/demo-custom-actions/checkout@v1
+        uses: v-sinika/demo-custom-actions/actions/checkout@v1
         with:
           fetch-depth: 0
       
       - name: Setup Node.js
-        uses: v-sinika/demo-custom-actions/setup-node@v1
+        uses: v-sinika/demo-custom-actions/actions/setup-node@v1
         with:
           node-version: '20'
       
