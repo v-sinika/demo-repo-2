@@ -1,0 +1,43 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+      version:
+        description: 'Version to deploy'
+        required: false
+        default: 'latest'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    
+    steps:
+      - name: Checkout
+        uses: v-sinika/demo-custom-actions/checkout@v1
+      
+      - name: Setup Node.js
+        uses: v-sinika/demo-custom-actions/setup-node@v1
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Deploy to environment
+        uses: v-sinika/demo-custom-actions/deploy@v1
+        with:
+          environment: ${{ inputs.environment }}
+          version: ${{ inputs.version }}
