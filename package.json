@@ -1,0 +1,8 @@
+{
+  "name": "demo-repo-2",
+  "scripts": {
+    "test": "echo ok",
+    "lint": "echo ok",
+    "build": "echo ok"
+  }
+}
