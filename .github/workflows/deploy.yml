@@ -23,10 +23,10 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: v-sinika/demo-custom-actions/actions/checkout@v1
+        uses: v-sinika/demo-custom-actions/actions/checkout@7d0c4ac46067a6fe434eb494f5ad1464c3ad25a9 # main, commit date 2026-01-16
       
       - name: Setup Node.js
-        uses: v-sinika/demo-custom-actions/actions/setup-node@v1
+        uses: v-sinika/demo-custom-actions/actions/setup-node@7d0c4ac46067a6fe434eb494f5ad1464c3ad25a9 # main, commit date 2026-01-16
         with:
           node-version: '20'
       
@@ -37,7 +37,7 @@ jobs:
         run: npm run build
       
       - name: Deploy to environment
-        uses: v-sinika/demo-custom-actions/actions/deploy@v1
+        uses: v-sinika/demo-custom-actions/actions/deploy@7d0c4ac46067a6fe434eb494f5ad1464c3ad25a9 # main, commit date 2026-01-16
         with:
           environment: ${{ inputs.environment }}
           version: ${{ inputs.version }}
